@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:weather_info/model/weather_model.dart';
 
 class ForecastScreen extends StatefulWidget {
-  const ForecastScreen({super.key});
+  const ForecastScreen({super.key, required List<WeatherModel> weatherModel});
 
   @override
   State<ForecastScreen> createState() => _ForecastScreenState();

@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:weather_info/screens/settings_screen.dart';
 
+import '../model/weather_model.dart';
 import 'forecast_screen.dart';
 import 'home_screeen.dart';
 import 'search._screen.dart';
 
 class NavbarScreen extends StatefulWidget {
-  const NavbarScreen({super.key});
+  List<WeatherModel> weatherModel = [];
+  NavbarScreen({
+    super.key,
+    required this.weatherModel,
+  });
 
   @override
   State<NavbarScreen> createState() => _NavbarScreenState();
@@ -21,9 +26,9 @@ class _NavbarScreenState extends State<NavbarScreen> {
   void initState() {
     super.initState();
     pages = [
-      const HomeScreen(),
+      HomeScreen(weatherModel: widget.weatherModel),
       const SearchScreen(),
-      const ForecastScreen(),
+      ForecastScreen(weatherModel: widget.weatherModel),
       const SettingsScreen(),
     ];
   }
