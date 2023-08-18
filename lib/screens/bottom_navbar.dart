@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:weather_info/screens/settings_screen.dart';
 
-import '../model/weather_model.dart';
+import '../model/model.dart';
 import 'forecast_screen.dart';
 import 'home_screeen.dart';
 import 'search._screen.dart';
 
+// ignore: must_be_immutable
 class NavbarScreen extends StatefulWidget {
-  List<WeatherModel> weatherModel = [];
+  List<Weather> weatherModel = [];
   NavbarScreen({
     super.key,
     required this.weatherModel,

@@ -16,6 +16,7 @@ class _SearchScreenState extends State<SearchScreen> {
           'Search Screen',
           style: TextStyle(
             fontSize: 32,
+            color: Colors.amber,
           ),
         ),
       ),

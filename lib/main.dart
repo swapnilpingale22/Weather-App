@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        scaffoldBackgroundColor: const Color(0xff081b25),
+        // scaffoldBackgroundColor: const Color(0xff081b25),
+        scaffoldBackgroundColor: Color.fromARGB(255, 151, 184, 202),
       ),
       home: const SplashScreen(),
     );

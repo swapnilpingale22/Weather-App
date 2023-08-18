@@ -1,7 +1,7 @@
 import 'dart:async';
 // import 'dart:convert';
 import 'package:flutter/material.dart';
-import '../model/weather_model.dart';
+import '../model/model.dart';
 import 'bottom_navbar.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,7 +13,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   List data = [];
-  List<WeatherModel> weatherList = [];
+  List<Weather> weatherList = [];
 
   @override
   void initState() {
@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // String myData = await rootBundle.loadString('');
     setState(() {
       // data = json.decode(myData);
-      weatherList = data.map((e) => WeatherModel.fromJson(e)).toList();
+      weatherList = data.map((e) => Weather.fromJson(e)).toList();
       weatherList = weatherList;
     });
     Timer(

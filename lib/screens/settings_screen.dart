@@ -16,6 +16,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           'Settings Screen',
           style: TextStyle(
             fontSize: 32,
+            color: Colors.amber,
           ),
         ),
       ),
