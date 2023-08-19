@@ -29,7 +29,7 @@ class _NavbarScreenState extends State<NavbarScreen> {
     pages = [
       HomeScreen(weatherModel: widget.weatherModel),
       const SearchScreen(),
-      ForecastScreen(weatherModel: widget.weatherModel),
+      ForecastScreen(),
       const SettingsScreen(),
     ];
   }

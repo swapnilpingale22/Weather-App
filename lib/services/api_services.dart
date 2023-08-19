@@ -9,7 +9,7 @@ getCurrentWeather(latitude, longitude) async {
 
   if (res.statusCode == 200) {
     var data = weatherFromJson(res.body.toString());
-    print('Current data received');
+    // print('Current data received');
     return data;
   }
 }
