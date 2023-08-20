@@ -2,13 +2,11 @@
 
 import 'dart:core';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:weather_info/model/model.dart';
 import 'package:weather_info/screens/weather_ui_card.dart';
 import 'package:weather_info/services/get_location.dart';
 import 'package:weather_info/services/api_services.dart';
 import 'package:intl/intl.dart';
-import '../constants/strings.dart';
 
 class HomeScreen extends StatefulWidget {
   final List<Weather> weatherModel;

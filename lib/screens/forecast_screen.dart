@@ -68,6 +68,11 @@ class _ForecastScreenState extends State<ForecastScreen> {
                   suggestionsCallback: (pattern) async {
                     return await getCitySuggestions(pattern);
                   },
+                  suggestionsBoxDecoration: SuggestionsBoxDecoration(
+                    color: Colors.blueGrey.shade200,
+                    borderRadius: BorderRadius.circular(15),
+                    elevation: 12,
+                  ),
                   itemBuilder: (context, suggestion) {
                     return ListTile(
                       leading: Icon(
@@ -110,41 +115,10 @@ class _ForecastScreenState extends State<ForecastScreen> {
                             ///////////////////////////////////////////////////////////////////////////
 
                             return WeatherUICard(
-                                size: size, data: data, date: date);
-                            //  Column(
-                            //   children: [
-                            //     Text(
-                            //       'Weather of city: ${data.location.name}',
-                            //       style: const TextStyle(
-                            //         fontSize: 24,
-                            //         fontWeight: FontWeight.bold,
-                            //         fontFamily: 'MavenPro',
-                            //       ),
-                            //     ),
-                            //     Text(
-                            //       'Weather condition: ${data.current.condition.text}',
-                            //       style: const TextStyle(
-                            //         fontSize: 24,
-                            //         fontWeight: FontWeight.bold,
-                            //         fontFamily: 'MavenPro',
-                            //       ),
-                            //     ),
-                            //     Text(
-                            //       'Temp: ${data.current.tempC}$degree',
-                            //       style: const TextStyle(
-                            //         fontSize: 24,
-                            //         fontWeight: FontWeight.bold,
-                            //         fontFamily: 'MavenPro',
-                            //       ),
-                            //     ),
-                            //     Image.network(
-                            //       'https:${data.current.condition.icon}',
-                            //       fit: BoxFit.cover,
-                            //       height: 100,
-                            //       width: 100,
-                            //     ),
-                            //   ],
-                            // );
+                              size: size,
+                              data: data,
+                              date: date,
+                            );
 
                             //////////////////////////////////////////////////////////////
                           } else if (snapshot.hasError) {
@@ -175,7 +149,7 @@ class _ForecastScreenState extends State<ForecastScreen> {
     const maxRows = 4;
 
     final response = await http.get(Uri.parse(
-        'http://api.geonames.org/searchJSON?q=$pattern&maxRows=$maxRows&username=$apiKey'));
+        'http://api.geonames.org/searchJSON?name=$pattern&maxRows=$maxRows&username=$apiKey&countryBias=IN&style=short'));
 
     if (response.statusCode == 200) {
       final List<dynamic> cities = json.decode(response.body)['geonames'];
@@ -212,7 +186,7 @@ class _ForecastScreenState extends State<ForecastScreen> {
 
     if (res.statusCode == 200) {
       var data = mod.weatherFromJson(res.body.toString());
-      print('New data received');
+      // print('Weather data received');
       return data;
     }
   }
